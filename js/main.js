@@ -34,7 +34,7 @@ function main() {
         console.log('2- AGREGAR PRODUCTOS A LA LISTA')
         console.log('3- BUSQUEDA DE UN ELEMENTO')
         console.log('4- BUSCAR PRODUCTOS MENORES AL PRECIO DE: $')
-        console.log('5- ORDENAR PRECIO')
+        console.log('5- ORDENAR MENOR A MAYOR POR STOCK')
         console.log('6- MOSTRAR TODA LA LISTA')
         console.log('7- SALIR')
         opcion = prompt('Ingrese una opcion: ')
