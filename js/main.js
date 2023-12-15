@@ -1,124 +1,73 @@
-// Venta de productos
-
-function calculoporcentajemas(precio,porcentaje) {
-    preciototal = (precio * porcentaje / 100) + precio
-    return preciototal 
+function agregar(Lista) {
+    alert('A continuacion se van a cargar los datos a la Lista')
+    p = prompt('Producto: ')
+    precio = prompt('Precio: ')
+    preciopublico = prompt('Precio publico: ')
+    s = prompt('Stock: ')
+    Lista.push({
+        Producto: p,
+        PrecioStock: parseInt(precio),
+        PrecioPublico: parseInt(preciopublico),
+        Stock: parseInt(s)
+    })
 }
 
-function calculoporcentajemenos(precio,porcentaje) {
-    preciototal = precio - (precio * porcentaje / 100)
-    return preciototal
-}
+function main() {
+    alert('Lista de precios')
+    let Lista = [
+        {
+            Producto: 'Heladera',
+            PrecioStock: 250000,
+            PrecioPublico: 300000,
+            Stock: Math.round( Math.random() * 30 )
+        },
+        {
+            Producto: 'Lavarropas',
+            PrecioStock: 180000,
+            PrecioPublico: 250000,
+            Stock: Math.round( Math.random() * 30 )
+        }
+    
+    ]
+    let opcion = 0;
+    while(opcion != 6) {
+        console.log('1- MOSTRAR TODOS LOS PRODUCTOS A LA VENTA')
+        console.log('2- AGREGAR PRODUCTOS A LA LISTA')
+        console.log('3- BUSQUEDA DE UN ELEMENTO')
+        console.log('4- BUSCAR PRODUCTOS MENORES A')
+        console.log('5- ORDENAR PRECIO')
+        console.log('6- SALIR')
+        opcion = prompt('Ingrese una opcion: ')
+        
+        switch(opcion) {
+            case '1':
+                const ListaProductos = Lista.map(item => item.Producto)
+                console.log(ListaProductos)
+                break;
+            case '2':
+                let cantidad = prompt('Cuantos productos desea agregar a la lista?')
+                for (let i = 1; i <= cantidad; i += 1)
+                    agregar(Lista)
+                break;
+            case '3':
 
-function calculoventas(){
-    let cantidad = prompt('Cuantos productos desea comprar?')
-    for(let i = 1; i <= cantidad; i += 1){
-        let producto = prompt('Que producto desea comprar? Eliga la opcion numerica 1: Lavarropas 2: Heladera 3: Microondas 4: Televisor')
-        let metodo_pago = prompt('Metodo de pago Eliga la opcion numerica 1: Efectivo 2: Tarjeta 3: Transferencia')
-        if(producto == 1){
-            console.log('Usted eligio el producto LAVARROPAS')
-            let precio = 150000
-            console.log('El precio de lista del producto es de $' + precio)
-            console.log('----------------------------------------')
-            if (metodo_pago == 1) {
-                precio = calculoporcentajemenos(precio,10)
-                console.log('Se aplica un descuento del 10% quedando el total en $' + precio)
-                console.log('----------------------------------------') 
-            } else if (metodo_pago == 2) {
-                precio = calculoporcentajemas(precio,15)
-                console.log('Se aplica un 15% mas quedando el total en $' + precio)
-                console.log('----------------------------------------')
-            } else {
-                precio = precio
-                console.log('Por transferencia queda en precio de lista de $' + precio)
-                console.log('----------------------------------------')
-            }
-            let deseacomprar = prompt('Desea comprar? Eliga la opcion 1: SI 2: NO')
-            if(deseacomprar == 1){
-                console.log('Compra realizada con exito....')
-            }else{
-                console.log('Gracias por tu tiempo....')
-            }
-            
-        }
-        if(producto == 2){
-            console.log('Usted eligio el producto HELADERA')
-            let precio = 300000
-            console.log('El precio de lista del producto es de $' + precio)
-            console.log('----------------------------------------')
-            if (metodo_pago == 1) {
-                precio = calculoporcentajemenos(precio,10)
-                console.log('Se aplica un descuento del 10% quedando el total en $' + precio)
-                console.log('----------------------------------------') 
-            } else if (metodo_pago == 2) {
-                precio = calculoporcentajemas(precio,15)
-                console.log('Se aplica un 15% mas quedando el total en $' + precio)
-                console.log('----------------------------------------')
-            } else {
-                precio = precio
-                console.log('Por transferencia queda en precio de lista de $' + precio)
-                console.log('----------------------------------------')
-            }
-            let deseacomprar = prompt('Desea comprar? Eliga la opcion 1: SI 2: NO')
-            if(deseacomprar == 1){
-                console.log('Compra realizada con exito....')
-            }else{
-                console.log('Gracias por tu tiempo....')
-            }
-        }
-        if(producto == 3){
-            console.log('Usted eligio el producto MICROONDAS')
-            let precio = 90000
-            console.log('El precio de lista del producto es de $' + precio)
-            console.log('----------------------------------------')
-            if (metodo_pago == 1) {
-                precio = calculoporcentajemenos(precio,10)
-                console.log('Se aplica un descuento del 10% quedando el total en $' + precio)
-                console.log('----------------------------------------') 
-            } else if (metodo_pago == 2) {
-                precio = calculoporcentajemas(precio,15)
-                console.log('Se aplica un 15% mas quedando el total en $' + precio)
-                console.log('----------------------------------------')
-            } else {
-                precio = precio
-                console.log('Por transferencia queda en precio de lista de $' + precio)
-                console.log('----------------------------------------')
-            }
-            let deseacomprar = prompt('Desea comprar? Eliga la opcion 1: SI 2: NO')
-            if(deseacomprar == 1){
-                console.log('Compra realizada con exito....')
-            }else{
-                console.log('Gracias por tu tiempo....')
-            }
-        }
-        if(producto == 4){
-            console.log('Usted eligio el producto TELEVISOR')
-            let precio = 250000
-            console.log('El precio de lista del producto es de $' + precio)
-            console.log('----------------------------------------')
-            if (metodo_pago == 1) {
-                precio = calculoporcentajemenos(precio,10)
-                console.log('Se aplica un descuento del 10% quedando el total en $' + precio)
-                console.log('----------------------------------------') 
-            } else if (metodo_pago == 2) {
-                precio = calculoporcentajemas(precio,15)
-                console.log('Se aplica un 15% mas quedando el total en $' + precio)
-                console.log('----------------------------------------')
-            } else {
-                precio = precio
-                console.log('Por transferencia queda en precio de lista de $' + precio)
-                console.log('----------------------------------------')
-            }
-            let deseacomprar = prompt('Desea comprar? Eliga la opcion numerica 1: SI 2: NO')
-            if(deseacomprar == 1){
-                console.log('Compra realizada con exito....')
-            }else{
-                console.log('Gracias por tu tiempo....')
-            }
+                break;
+            case '4':
+
+                break;
+                
+            case '5':
+
+                break;
+            case '6':
+                console.log('Gracias por usar el programa')
+                break;
+            default:
+                console.log('Opcion no valida...')
+                break;
+        
         }
     }
-    
-    
 }
 
-calculoventas();
+main()
